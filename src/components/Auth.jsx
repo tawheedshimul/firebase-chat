@@ -12,6 +12,7 @@ function Auth(props) {
             const result = await signInWithPopup(auth, provider);
             cookies.set("auth-token", result.user.refreshToken);
             setIsAuth(true);
+            // console.log(result)
         } catch (err) {
             console.error(err);
         }

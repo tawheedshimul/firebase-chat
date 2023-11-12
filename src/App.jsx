@@ -52,7 +52,7 @@ function App() {
             )}
             <div className="mt-4">
               <button
-                className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600"
+                className="bg-red-500 fixed top-3 right-3 text-white p-2 rounded-md hover:bg-red-600"
                 onClick={signUserOut}
               >
                 Sign Out
