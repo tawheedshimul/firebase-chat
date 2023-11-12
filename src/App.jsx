@@ -2,9 +2,8 @@ import React, { useRef, useState } from 'react';
 import Auth from './components/Auth';
 import Cookies from 'universal-cookie';
 import Chat from './components/Chat';
-import { getAuth, signOut } from 'firebase/auth'; // Assuming you are using Firebase
+import { getAuth, signOut } from 'firebase/auth';
 
-import './App.css'; // Import the Tailwind styles
 
 const cookies = new Cookies();
 
@@ -13,7 +12,7 @@ function App() {
   const [room, setRoom] = useState(null);
 
   const roomInputRef = useRef(null);
-  const auth = getAuth(); // Get the auth instance
+  const auth = getAuth();
 
   const signUserOut = async () => {
     try {

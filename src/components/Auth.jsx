@@ -1,19 +1,21 @@
 import React from 'react';
-import { auth, provider } from '../firebase-config';
+import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
+const cookies = new Cookies
 
-function Auth({ setIsAuth }) {
+function Auth(props) {
+    const { setIsAuth } = props;
     const signInWithGoogle = async () => {
         try {
-            const { user } = await signInWithPopup(auth, provider);
-            cookies.set('auth-token', user.refreshToken);
+            const result = await signInWithPopup(auth, provider);
+            cookies.set("auth-token", result.user.refreshToken);
             setIsAuth(true);
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
         }
+
     };
 
     return (
@@ -26,4 +28,3 @@ function Auth({ setIsAuth }) {
 }
 
 export default Auth;
-
