@@ -69,7 +69,7 @@ function Chat(props) {
                 <input
                     type="text"
                     placeholder="Write your message!"
-                    className="flex-1 p-2 mr-2 border border-gray-300 rounded focus:outline-none"
+                    className="flex-1 p-2 border border-gray-300 rounded focus:outline-none"
                     onChange={(e) => setNewMessage(e.target.value)}
                     value={newMessage}
                 />
