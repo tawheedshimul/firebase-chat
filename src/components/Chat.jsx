@@ -45,38 +45,53 @@ function Chat(props) {
     useEffect(() => {
         // Scroll to the bottom of the chat container
         chatContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }, [messages]);
+
+        // Optionally add the mb-24 class
+        // chatContainerRef.current.classList.add('mb-44');
+    }, [messages]);;
 
     return (
-        <div className="w-full h-full flex flex-col bg-gray-900 text-white">
-            <div className="text-3xl fixed top-0 w-full ms-6 bg-black p-4 font-bold mb-4">Welcome to: {room.toUpperCase()}</div>
+        <div>
+            <div className="text-3xl font-bold mb-4 fixed top-0 bg-blue-800 w-full text-white text-center p-3">Welcome to: {room.toUpperCase()}</div>
 
-            <div className="flex-1 overflow-y-auto mb-10 space-y-2 p-4">
+            <div className="flex flex-col space-y-4">
                 {messages.map((message) => (
-                    <div key={message.id} className="flex items-start w-screen text-sm">
-                        <span className="mr-2 font-semibold text-blue-500">{message.user}:</span>
-                        <span>{message.text}</span>
+                    <div key={message.id} className="flex flex-col">
+                        <span className="bg-blue-500 text-white p-2 font-bold">{message.user}:</span>
+                        <span className="bg-blue-200 font-semibold p-2 pb-16 rounded">{message.text}</span>
                     </div>
                 ))}
                 <div ref={chatContainerRef}></div>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex fixed bottom-0 w-full ms-6 mx-auto items-center bg-white rounded-b-lg p-4">
+
+            <form className="flex p-4 bg-blue-300 rounded shadow fixed w-full bottom-0" onSubmit={handleSubmit}>
                 <input
-                    type="text" placeholder="Write your message!" className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-2 bg-gray-200 rounded-md py-3"
+                    type="text"
+                    placeholder="Write your message!"
+                    className="flex-1 p-2 mr-2 border border-gray-300 rounded focus:outline-none"
                     onChange={(e) => setNewMessage(e.target.value)}
                     value={newMessage}
                 />
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 ml-2 transform rotate-90">
-                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                <button type="submit" className="flex items-center px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-900 focus:outline-none">
+                    <span className="mr-2">SEND</span>
+                    <svg
+                        className="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <path d="M22 2L11 13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
                     </svg>
                 </button>
             </form>
+
         </div>
+
 
 
     );

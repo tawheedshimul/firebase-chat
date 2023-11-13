@@ -26,8 +26,8 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md">
+    <div>
+      <div>
         {!isAuth ? (
           <Auth setIsAuth={setIsAuth} />
         ) : (
@@ -35,19 +35,24 @@ function App() {
             {room ? (
               <Chat room={room}></Chat>
             ) : (
-              <div className="flex flex-col items-center space-y-4">
-                <label className="text-lg font-bold mb-4">Enter The Room</label>
-                <input
-                  className="border border-gray-300 p-2 rounded-md w-64"
-                  ref={roomInputRef}
-                  type="text"
-                />
-                <button
-                  className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
-                  onClick={() => setRoom(roomInputRef.current.value)}
-                >
-                  Enter Chat
-                </button>
+              <div className="flex flex-col mt-24 space-y-4">
+                <label className="text-lg text-white text-center bg-black p-3 font-bold mb-4">Enter The Room</label>
+                <div className='flex flex-col items-center justify-center'>
+                  <div>
+                    <input
+                      className="border border-gray-300 p-2 rounded-md w-64"
+                      ref={roomInputRef}
+                      type="text"
+                    />
+                  </div>
+                  <button
+                    className="bg-blue-500 mt-3 w-24 text-white p-2 rounded-md hover:bg-blue-600"
+                    onClick={() => setRoom(roomInputRef.current.value)}
+                  >
+                    Enter Chat
+                  </button>
+                </div>
+
               </div>
             )}
             <div className="mt-4">

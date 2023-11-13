@@ -22,7 +22,7 @@ function Auth(props) {
     return (
         <div>
             <button onClick={signInWithGoogle}>
-                <span className="text-gray-700">Sign in with Google</span>
+                <span className="bg-blue-500 fixed top-1/2 left-1/2 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none">Sign in with Google</span>
             </button>
         </div>
     );
